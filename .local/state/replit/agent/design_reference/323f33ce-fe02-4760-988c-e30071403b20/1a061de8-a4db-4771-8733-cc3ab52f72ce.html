@@ -1,0 +1,980 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberHack 2024 - Ultimate Coding Challenge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00D4FF',
+                        'neon-purple': '#9D4EDD',
+                        'hot-pink': '#FF006E',
+                        'cyber-teal': '#4ECDC4',
+                        'deep-purple': '#6B46C1',
+                        'dark-bg': '#0A0A0F',
+                        'darker-purple': '#1A1A2E'
+                    },
+                    fontFamily: {
+                        'cyber': ['Orbitron', 'monospace'],
+                        'futuristic': ['Exo 2', 'sans-serif']
+                    },
+                    animation: {
+                        'glow-pulse': 'glow-pulse 2s ease-in-out infinite alternate',
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.8s ease-out forwards',
+                        'cyber-spin': 'cyber-spin 20s linear infinite',
+                        'counter': 'counter 2s ease-out forwards'
+                    },
+                    keyframes: {
+                        'glow-pulse': {
+                            '0%': { 'box-shadow': '0 0 20px rgba(157, 78, 221, 0.5)' },
+                            '100%': { 'box-shadow': '0 0 30px rgba(157, 78, 221, 0.8), 0 0 40px rgba(157, 78, 221, 0.3)' }
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        'cyber-spin': {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' }
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom CSS for advanced effects */
+        .cyber-glow {
+            text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+        }
+        
+        .neon-border {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #00D4FF, #9D4EDD, #FF006E) 1;
+            box-shadow: 0 0 20px rgba(157, 78, 221, 0.3);
+        }
+        
+        .particle-bg {
+            background: radial-gradient(circle at 20% 80%, #9D4EDD 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, #00D4FF 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, #FF006E 0%, transparent 50%);
+        }
+        
+        .parallax {
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to right, #9D4EDD, #00D4FF, #FF006E);
+            height: 4px;
+            position: relative;
+        }
+        
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, #FFD700, #00D4FF);
+            transition: width 2s ease-in-out;
+        }
+        
+        .timeline-active .timeline-line::before {
+            width: 100%;
+        }
+        
+        .flip-card {
+            background-color: transparent;
+            width: 100%;
+            height: 250px;
+            perspective: 1000px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 15px;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(157, 78, 221, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(157, 78, 221, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        
+        .hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .hamburger-menu span {
+            width: 25px;
+            height: 3px;
+            background: #00D4FF;
+            margin: 3px 0;
+            transition: 0.3s;
+            box-shadow: 0 0 5px #00D4FF;
+        }
+        
+        .hamburger-menu.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-menu.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            
+            .mobile-menu.active {
+                transform: translateX(0);
+            }
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.8) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float-particle 8s infinite linear;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-white font-futuristic overflow-x-hidden">
+    
+    <!-- @COMPONENT: Navbar [sticky navigation with smooth scroll] -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-bg/90 backdrop-blur-md border-b border-neon-purple/30">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-cyber font-bold text-cyber-blue cyber-glow">
+                    CyberHack<span class="text-hot-pink">2024</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-cyber-blue transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-blue transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="hover:text-neon-purple transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-neon-purple transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#timeline" class="hover:text-cyber-teal transition-colors duration-300 relative group">
+                        Timeline
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-teal transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#prizes" class="hover:text-hot-pink transition-colors duration-300 relative group">
+                        Prizes
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-hot-pink transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#sponsors" class="hover:text-yellow-400 transition-colors duration-300 relative group">
+                        Sponsors
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#community" class="hover:text-cyber-blue transition-colors duration-300 relative group">
+                        Community
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyber-blue transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+                
+                <!-- Register Button -->
+                <div class="hidden md:block">
+                    <button class="bg-gradient-to-r from-neon-purple to-hot-pink px-6 py-2 rounded-full font-semibold hover:scale-105 transition-transform duration-300 animate-glow-pulse">
+                        Register on Unstop
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden hamburger-menu" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="mobile-menu fixed top-0 left-0 w-full h-screen bg-dark-bg/95 backdrop-blur-lg z-40 md:hidden">
+                <div class="flex flex-col items-center justify-center h-full space-y-8 text-xl">
+                    <a href="#home" class="hover:text-cyber-blue transition-colors duration-300" onclick="toggleMobileMenu()">Home</a>
+                    <a href="#about" class="hover:text-neon-purple transition-colors duration-300" onclick="toggleMobileMenu()">About</a>
+                    <a href="#timeline" class="hover:text-cyber-teal transition-colors duration-300" onclick="toggleMobileMenu()">Timeline</a>
+                    <a href="#prizes" class="hover:text-hot-pink transition-colors duration-300" onclick="toggleMobileMenu()">Prizes</a>
+                    <a href="#sponsors" class="hover:text-yellow-400 transition-colors duration-300" onclick="toggleMobileMenu()">Sponsors</a>
+                    <a href="#community" class="hover:text-cyber-blue transition-colors duration-300" onclick="toggleMobileMenu()">Community</a>
+                    <button class="bg-gradient-to-r from-neon-purple to-hot-pink px-8 py-3 rounded-full font-semibold mt-8 animate-glow-pulse">
+                        Register on Unstop
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Navbar -->
+
+    <!-- @COMPONENT: Hero Section [full-screen with particles and CTA] -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center particle-bg cyber-grid overflow-hidden">
+        <!-- Floating Particles -->
+        <div class="floating-particles">
+            <div class="particle" style="left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; width: 6px; height: 6px; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 30%; width: 3px; height: 3px; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 40%; width: 5px; height: 5px; animation-delay: 0.5s;"></div>
+            <div class="particle" style="left: 50%; width: 4px; height: 4px; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 60%; width: 7px; height: 7px; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 70%; width: 3px; height: 3px; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 80%; width: 5px; height: 5px; animation-delay: 0.8s;"></div>
+            <div class="particle" style="left: 90%; width: 4px; height: 4px; animation-delay: 1.8s;"></div>
+        </div>
+        
+        <!-- Main Hero Content -->
+        <div class="text-center z-10 px-4 max-w-6xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-cyber font-black mb-6 cyber-glow text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue via-neon-purple to-hot-pink animate-slide-up">
+                CYBERHACK
+            </h1>
+            <h2 class="text-3xl md:text-5xl font-cyber font-bold mb-4 text-cyber-teal animate-slide-up" style="animation-delay: 0.2s;">
+                2024
+            </h2>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto animate-slide-up" style="animation-delay: 0.4s;">
+                <span class="text-hot-pink cyber-glow">48 Hours</span> of Pure Innovation • 
+                <span class="text-cyber-blue cyber-glow">₹1,00,000</span> Prize Pool • 
+                <span class="text-neon-purple cyber-glow">Unlimited</span> Possibilities
+            </p>
+            
+            <!-- CTA Button -->
+            <div class="animate-slide-up" style="animation-delay: 0.6s;">
+                <button class="bg-gradient-to-r from-neon-purple via-hot-pink to-cyber-blue px-12 py-4 rounded-full text-xl font-bold hover:scale-110 transition-all duration-300 animate-glow-pulse animate-float shadow-2xl">
+                    <i class="fas fa-rocket mr-2"></i>
+                    Register on Unstop
+                </button>
+            </div>
+            
+            <!-- Scroll Arrow -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-3xl text-cyber-blue cyber-glow"></i>
+            </div>
+        </div>
+        
+        <!-- Background Effects -->
+        <div class="absolute top-0 left-0 w-full h-full">
+            <div class="absolute top-20 left-10 w-20 h-20 bg-neon-purple/20 rounded-full animate-cyber-spin"></div>
+            <div class="absolute top-40 right-20 w-16 h-16 bg-cyber-blue/20 rounded-full animate-cyber-spin" style="animation-delay: -5s;"></div>
+            <div class="absolute bottom-40 left-20 w-24 h-24 bg-hot-pink/20 rounded-full animate-cyber-spin" style="animation-delay: -10s;"></div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Hero Section -->
+
+    <!-- @COMPONENT: About Section [with animated content] -->
+    <section id="about" class="py-20 bg-gradient-to-br from-darker-purple to-dark-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-cyber font-bold mb-6 text-cyber-blue cyber-glow">
+                    About CyberHack 2024
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-neon-purple to-hot-pink mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold text-hot-pink mb-4">The Ultimate Coding Challenge</h3>
+                    <p class="text-lg leading-relaxed text-gray-300">
+                        Step into the future of innovation at CyberHack 2024, where brilliant minds converge to create 
+                        groundbreaking solutions. This isn't just a hackathon—it's a cyberpunk journey through the 
+                        digital frontier.
+                    </p>
+                    <p class="text-lg leading-relaxed text-gray-300">
+                        Join <span class="text-cyber-blue font-semibold">500+ developers</span>, compete for 
+                        <span class="text-neon-purple font-semibold">₹1,00,000</span> in prizes, and connect with 
+                        industry leaders in an immersive 48-hour experience.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="text-center p-4 bg-dark-bg/50 rounded-lg neon-border">
+                            <div class="text-3xl font-bold text-cyber-blue mb-2">500+</div>
+                            <div class="text-sm text-gray-400">Participants</div>
+                        </div>
+                        <div class="text-center p-4 bg-dark-bg/50 rounded-lg neon-border">
+                            <div class="text-3xl font-bold text-hot-pink mb-2">48hrs</div>
+                            <div class="text-sm text-gray-400">Non-stop Coding</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Dynamic cityscape with coding participants -->
+                    <img src="https://pixabay.com/get/gb9b2c73bcebbbfbbb0e39114b0dd52040705e72807e3f595b62c8e088abe159f94356134621b4596553971a78e36200a96e12e4616161d68e8bbd7616fd01f86_1280.jpg" 
+                         alt="Hackathon participants coding together in a futuristic environment" 
+                         class="rounded-xl shadow-2xl w-full h-auto hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-neon-purple/20 to-transparent rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: About Section -->
+
+    <!-- @COMPONENT: Timeline Section [horizontal animated timeline] -->
+    <section id="timeline" class="py-20 bg-dark-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-cyber font-bold mb-6 text-neon-purple cyber-glow">
+                    Event Timeline
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-blue to-cyber-teal mx-auto mb-8"></div>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <!-- Desktop Timeline -->
+                <div class="hidden md:block">
+                    <div class="relative timeline-container" id="timeline-container">
+                        <div class="timeline-line mb-8"></div>
+                        
+                        <div class="grid grid-cols-5 gap-4 relative">
+                            <!-- Timeline Item 1 -->
+                            <div class="timeline-item text-center group" data-date="Dec 15">
+                                <div class="timeline-dot w-6 h-6 bg-cyber-blue rounded-full mx-auto mb-4 border-4 border-dark-bg shadow-lg hover:scale-125 transition-transform duration-300 cyber-glow"></div>
+                                <div class="bg-darker-purple p-4 rounded-lg hover:bg-neon-purple/20 transition-colors duration-300 group-hover:scale-105">
+                                    <h4 class="font-bold text-cyber-blue mb-2">Registrations Open</h4>
+                                    <p class="text-sm text-gray-400">Sign up begins</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Item 2 -->
+                            <div class="timeline-item text-center group" data-date="Jan 10">
+                                <div class="timeline-dot w-6 h-6 bg-neon-purple rounded-full mx-auto mb-4 border-4 border-dark-bg shadow-lg hover:scale-125 transition-transform duration-300 cyber-glow"></div>
+                                <div class="bg-darker-purple p-4 rounded-lg hover:bg-neon-purple/20 transition-colors duration-300 group-hover:scale-105">
+                                    <h4 class="font-bold text-neon-purple mb-2">Shortlisting</h4>
+                                    <p class="text-sm text-gray-400">Team selection</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Item 3 -->
+                            <div class="timeline-item text-center group" data-date="Jan 25">
+                                <div class="timeline-dot w-6 h-6 bg-cyber-teal rounded-full mx-auto mb-4 border-4 border-dark-bg shadow-lg hover:scale-125 transition-transform duration-300 cyber-glow"></div>
+                                <div class="bg-darker-purple p-4 rounded-lg hover:bg-cyber-teal/20 transition-colors duration-300 group-hover:scale-105">
+                                    <h4 class="font-bold text-cyber-teal mb-2">Hackathon Begins</h4>
+                                    <p class="text-sm text-gray-400">48hrs of coding</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Item 4 -->
+                            <div class="timeline-item text-center group" data-date="Jan 27">
+                                <div class="timeline-dot w-6 h-6 bg-hot-pink rounded-full mx-auto mb-4 border-4 border-dark-bg shadow-lg hover:scale-125 transition-transform duration-300 cyber-glow"></div>
+                                <div class="bg-darker-purple p-4 rounded-lg hover:bg-hot-pink/20 transition-colors duration-300 group-hover:scale-105">
+                                    <h4 class="font-bold text-hot-pink mb-2">Demo Day</h4>
+                                    <p class="text-sm text-gray-400">Present solutions</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Timeline Item 5 -->
+                            <div class="timeline-item text-center group" data-date="Jan 28">
+                                <div class="timeline-dot w-6 h-6 bg-yellow-400 rounded-full mx-auto mb-4 border-4 border-dark-bg shadow-lg hover:scale-125 transition-transform duration-300" style="box-shadow: 0 0 20px #FFD700;"></div>
+                                <div class="bg-darker-purple p-4 rounded-lg hover:bg-yellow-400/20 transition-colors duration-300 group-hover:scale-105">
+                                    <h4 class="font-bold text-yellow-400 mb-2">Prize Ceremony</h4>
+                                    <p class="text-sm text-gray-400">Winners announced</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mobile Timeline -->
+                <div class="md:hidden space-y-6">
+                    <div class="flex items-center space-x-4 p-4 bg-darker-purple rounded-lg">
+                        <div class="w-4 h-4 bg-cyber-blue rounded-full cyber-glow"></div>
+                        <div>
+                            <h4 class="font-bold text-cyber-blue">Dec 15 - Registrations Open</h4>
+                            <p class="text-sm text-gray-400">Sign up begins</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-darker-purple rounded-lg">
+                        <div class="w-4 h-4 bg-neon-purple rounded-full cyber-glow"></div>
+                        <div>
+                            <h4 class="font-bold text-neon-purple">Jan 10 - Shortlisting</h4>
+                            <p class="text-sm text-gray-400">Team selection</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-darker-purple rounded-lg">
+                        <div class="w-4 h-4 bg-cyber-teal rounded-full cyber-glow"></div>
+                        <div>
+                            <h4 class="font-bold text-cyber-teal">Jan 25 - Hackathon Begins</h4>
+                            <p class="text-sm text-gray-400">48hrs of coding</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-darker-purple rounded-lg">
+                        <div class="w-4 h-4 bg-hot-pink rounded-full cyber-glow"></div>
+                        <div>
+                            <h4 class="font-bold text-hot-pink">Jan 27 - Demo Day</h4>
+                            <p class="text-sm text-gray-400">Present solutions</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 bg-darker-purple rounded-lg">
+                        <div class="w-4 h-4 bg-yellow-400 rounded-full" style="box-shadow: 0 0 20px #FFD700;"></div>
+                        <div>
+                            <h4 class="font-bold text-yellow-400">Jan 28 - Prize Ceremony</h4>
+                            <p class="text-sm text-gray-400">Winners announced</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Timeline Section -->
+
+    <!-- @COMPONENT: Prizes Section [flip cards with animated counter] -->
+    <section id="prizes" class="py-20 bg-gradient-to-br from-dark-bg to-darker-purple">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-cyber font-bold mb-6 text-hot-pink cyber-glow">
+                    Prize Pool
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-hot-pink to-cyber-blue mx-auto mb-8"></div>
+                
+                <!-- Animated Counter -->
+                <div class="text-6xl md:text-8xl font-cyber font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-cyber-blue cyber-glow mb-4">
+                    ₹<span id="prize-counter" data-target="100000">0</span>
+                </div>
+                <p class="text-xl text-gray-300">Total Prize Pool</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 1st Prize -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gradient-to-br from-yellow-400/20 to-yellow-600/20 flex flex-col items-center justify-center neon-border">
+                            <i class="fas fa-crown text-6xl text-yellow-400 mb-4 cyber-glow"></i>
+                            <h3 class="text-3xl font-bold text-yellow-400 mb-2">1st Place</h3>
+                            <p class="text-2xl font-cyber font-bold">₹50,000</p>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-yellow-400 to-yellow-600 flex flex-col items-center justify-center text-dark-bg">
+                            <i class="fas fa-trophy text-6xl mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-4">Winner Package</h3>
+                            <ul class="text-center space-y-2">
+                                <li>• ₹50,000 Cash Prize</li>
+                                <li>• Trophy & Certificate</li>
+                                <li>• Internship Opportunity</li>
+                                <li>• Mentorship Program</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 2nd Prize -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gradient-to-br from-gray-300/20 to-gray-500/20 flex flex-col items-center justify-center neon-border">
+                            <i class="fas fa-medal text-6xl text-gray-300 mb-4 cyber-glow"></i>
+                            <h3 class="text-3xl font-bold text-gray-300 mb-2">2nd Place</h3>
+                            <p class="text-2xl font-cyber font-bold">₹30,000</p>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-gray-300 to-gray-500 flex flex-col items-center justify-center text-dark-bg">
+                            <i class="fas fa-award text-6xl mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-4">Runner-up Package</h3>
+                            <ul class="text-center space-y-2">
+                                <li>• ₹30,000 Cash Prize</li>
+                                <li>• Medal & Certificate</li>
+                                <li>• Workshop Access</li>
+                                <li>• Industry Connect</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 3rd Prize -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gradient-to-br from-amber-600/20 to-amber-800/20 flex flex-col items-center justify-center neon-border">
+                            <i class="fas fa-star text-6xl text-amber-600 mb-4 cyber-glow"></i>
+                            <h3 class="text-3xl font-bold text-amber-600 mb-2">3rd Place</h3>
+                            <p class="text-2xl font-cyber font-bold">₹20,000</p>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-amber-600 to-amber-800 flex flex-col items-center justify-center text-white">
+                            <i class="fas fa-gift text-6xl mb-4"></i>
+                            <h3 class="text-2xl font-bold mb-4">Third Place Package</h3>
+                            <ul class="text-center space-y-2">
+                                <li>• ₹20,000 Cash Prize</li>
+                                <li>• Certificate</li>
+                                <li>• Tech Merchandise</li>
+                                <li>• Community Access</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Special Mentions -->
+            <div class="mt-16 text-center">
+                <h3 class="text-3xl font-bold text-cyber-teal mb-8">Special Categories</h3>
+                <div class="grid md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-darker-purple p-6 rounded-lg neon-border hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-lightbulb text-3xl text-cyber-blue mb-3 cyber-glow"></i>
+                        <h4 class="font-bold text-cyber-blue mb-2">Best Innovation</h4>
+                        <p class="text-sm text-gray-400">Most creative solution</p>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-lg neon-border hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-users text-3xl text-neon-purple mb-3 cyber-glow"></i>
+                        <h4 class="font-bold text-neon-purple mb-2">People's Choice</h4>
+                        <p class="text-sm text-gray-400">Community favorite</p>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-lg neon-border hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-mobile-alt text-3xl text-hot-pink mb-3 cyber-glow"></i>
+                        <h4 class="font-bold text-hot-pink mb-2">Best Mobile App</h4>
+                        <p class="text-sm text-gray-400">Top mobile solution</p>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-lg neon-border hover:scale-105 transition-transform duration-300">
+                        <i class="fas fa-leaf text-3xl text-cyber-teal mb-3 cyber-glow"></i>
+                        <h4 class="font-bold text-cyber-teal mb-2">Social Impact</h4>
+                        <p class="text-sm text-gray-400">For good cause</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Prizes Section -->
+
+    <!-- @COMPONENT: Sponsors Section [carousel with hover effects] -->
+    <section id="sponsors" class="py-20 bg-dark-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-cyber font-bold mb-6 text-cyber-teal cyber-glow">
+                    Our Sponsors
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-teal to-cyber-blue mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Powered by industry leaders who believe in innovation
+                </p>
+            </div>
+            
+            <!-- Sponsor Tiers -->
+            <div class="space-y-16">
+                <!-- Title Sponsors -->
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-yellow-400">Title Sponsors</h3>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                        <!-- Tech company logo placeholder -->
+                        <div class="bg-darker-purple p-8 rounded-xl neon-border hover:scale-105 transition-all duration-300 group hover:bg-yellow-400/10">
+                            <img src="https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" 
+                                 alt="Major technology company logo" 
+                                 class="w-full h-20 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300">
+                        </div>
+                        <!-- Innovation company logo placeholder -->
+                        <div class="bg-darker-purple p-8 rounded-xl neon-border hover:scale-105 transition-all duration-300 group hover:bg-yellow-400/10">
+                            <img src="https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" 
+                                 alt="Innovation startup logo" 
+                                 class="w-full h-20 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gold Sponsors -->
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-cyber-blue">Gold Sponsors</h3>
+                    <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                        <!-- Software company logo -->
+                        <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-all duration-300 group hover:bg-cyber-blue/10">
+                            <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75" 
+                                 alt="Software development company logo" 
+                                 class="w-full h-16 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300">
+                        </div>
+                        <!-- Cloud services logo -->
+                        <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-all duration-300 group hover:bg-cyber-blue/10">
+                            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75" 
+                                 alt="Cloud services provider logo" 
+                                 class="w-full h-16 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300">
+                        </div>
+                        <!-- AI company logo -->
+                        <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-all duration-300 group hover:bg-cyber-blue/10">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75" 
+                                 alt="Artificial intelligence company logo" 
+                                 class="w-full h-16 object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Community Partners -->
+                <div>
+                    <h3 class="text-2xl font-bold text-center mb-8 text-neon-purple">Community Partners</h3>
+                    <div class="flex flex-wrap justify-center items-center gap-8 opacity-75">
+                        <div class="text-6xl text-neon-purple hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="text-6xl text-cyber-blue hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <i class="fab fa-discord"></i>
+                        </div>
+                        <div class="text-6xl text-hot-pink hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <i class="fab fa-slack"></i>
+                        </div>
+                        <div class="text-6xl text-cyber-teal hover:scale-110 transition-transform duration-300 cursor-pointer">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Sponsors Section -->
+
+    <!-- @COMPONENT: Community Section [countdown timer and Discord] -->
+    <section id="community" class="py-20 bg-gradient-to-br from-darker-purple via-dark-bg to-deeper-purple cyber-grid">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-cyber font-bold mb-6 text-cyber-blue cyber-glow">
+                    Join Our Community
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyber-blue to-neon-purple mx-auto mb-8"></div>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Connect with fellow hackers, get updates, and start networking before the event
+                </p>
+            </div>
+            
+            <!-- Countdown Timer -->
+            <div class="max-w-4xl mx-auto mb-16">
+                <h3 class="text-3xl font-bold text-center mb-8 text-hot-pink">Hackathon Starts In</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                    <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl font-cyber font-bold text-cyber-blue cyber-glow" id="days">25</div>
+                        <div class="text-sm text-gray-400 mt-2">Days</div>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl font-cyber font-bold text-neon-purple cyber-glow" id="hours">14</div>
+                        <div class="text-sm text-gray-400 mt-2">Hours</div>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl font-cyber font-bold text-hot-pink cyber-glow" id="minutes">32</div>
+                        <div class="text-sm text-gray-400 mt-2">Minutes</div>
+                    </div>
+                    <div class="bg-darker-purple p-6 rounded-xl neon-border hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl font-cyber font-bold text-cyber-teal cyber-glow" id="seconds">47</div>
+                        <div class="text-sm text-gray-400 mt-2">Seconds</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Community Actions -->
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Discord Community -->
+                <div class="bg-darker-purple p-8 rounded-xl neon-border text-center hover:scale-105 transition-all duration-300 group">
+                    <i class="fab fa-discord text-6xl text-cyber-blue cyber-glow mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-cyber-blue">Join Our Discord</h3>
+                    <p class="text-gray-300 mb-6">
+                        Connect with 1000+ developers, get real-time updates, find teammates, and engage in pre-hackathon discussions.
+                    </p>
+                    <button class="bg-gradient-to-r from-cyber-blue to-neon-purple px-8 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300 animate-glow-pulse">
+                        Join Discord Server
+                    </button>
+                </div>
+                
+                <!-- Newsletter Signup -->
+                <div class="bg-darker-purple p-8 rounded-xl neon-border text-center hover:scale-105 transition-all duration-300 group">
+                    <i class="fas fa-bell text-6xl text-hot-pink cyber-glow mb-6 group-hover:scale-110 transition-transform duration-300"></i>
+                    <h3 class="text-2xl font-bold mb-4 text-hot-pink">Stay Updated</h3>
+                    <p class="text-gray-300 mb-6">
+                        Get exclusive updates about workshops, mentorship sessions, and important announcements directly in your inbox.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" placeholder="Enter your email" 
+                               class="flex-1 bg-dark-bg border border-neon-purple/30 rounded-lg px-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:border-neon-purple">
+                        <button class="bg-gradient-to-r from-hot-pink to-neon-purple px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-transform duration-300">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Links -->
+            <div class="text-center mt-16">
+                <h3 class="text-2xl font-bold mb-8 text-cyber-teal">Follow Us</h3>
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="text-4xl text-cyber-blue hover:scale-125 transition-all duration-300 cyber-glow">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-4xl text-neon-purple hover:scale-125 transition-all duration-300 cyber-glow">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-4xl text-hot-pink hover:scale-125 transition-all duration-300 cyber-glow">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-4xl text-cyber-teal hover:scale-125 transition-all duration-300 cyber-glow">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: Community Section -->
+
+    <!-- @COMPONENT: Footer [complete with links] -->
+    <footer class="bg-dark-bg border-t border-neon-purple/30 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Brand -->
+                <div>
+                    <div class="text-3xl font-cyber font-bold text-cyber-blue cyber-glow mb-4">
+                        CyberHack<span class="text-hot-pink">2024</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        The ultimate cyberpunk hackathon experience. 48 hours of innovation, collaboration, and cutting-edge technology.
+                    </p>
+                    <div class="flex space-x-4">
+                        <i class="fab fa-github text-xl hover:text-cyber-blue transition-colors duration-300 cursor-pointer"></i>
+                        <i class="fab fa-discord text-xl hover:text-neon-purple transition-colors duration-300 cursor-pointer"></i>
+                        <i class="fab fa-twitter text-xl hover:text-cyber-teal transition-colors duration-300 cursor-pointer"></i>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-xl font-bold text-cyber-blue mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-white transition-colors duration-300">About</a></li>
+                        <li><a href="#timeline" class="hover:text-white transition-colors duration-300">Timeline</a></li>
+                        <li><a href="#prizes" class="hover:text-white transition-colors duration-300">Prizes</a></li>
+                        <li><a href="#sponsors" class="hover:text-white transition-colors duration-300">Sponsors</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-xl font-bold text-neon-purple mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Rules & Guidelines</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">API Documentation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">Mentor Network</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors duration-300">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xl font-bold text-hot-pink mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> hello@cyberhack2024.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2"></i> +91 98765 43210</li>
+                        <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2"></i> Tech Park, Bangalore</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 CyberHack. All rights reserved. Made with <span class="text-hot-pink">❤</span> for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- @END_COMPONENT: Footer -->
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animated counter for prize pool
+        function animateCounter(element, target) {
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target.toLocaleString();
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current).toLocaleString();
+                }
+            }, 16);
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Timeline animation
+                    if (entry.target.id === 'timeline-container') {
+                        entry.target.classList.add('timeline-active');
+                    }
+                    
+                    // Prize counter animation
+                    if (entry.target.querySelector('#prize-counter')) {
+                        const counter = entry.target.querySelector('#prize-counter');
+                        const target = parseInt(counter.dataset.target);
+                        animateCounter(counter, target);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineContainer = document.getElementById('timeline-container');
+            const prizeSection = document.getElementById('prizes');
+            
+            if (timelineContainer) observer.observe(timelineContainer);
+            if (prizeSection) observer.observe(prizeSection);
+        });
+
+        // Countdown timer
+        function updateCountdown() {
+            // Set target date (January 25, 2024)
+            const targetDate = new Date('2024-01-25T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update countdown display
+            const daysEl = document.getElementById('days');
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (daysEl) daysEl.textContent = days;
+            if (hoursEl) hoursEl.textContent = hours;
+            if (minutesEl) minutesEl.textContent = minutes;
+            if (secondsEl) secondsEl.textContent = seconds;
+
+            // If countdown is finished
+            if (distance < 0) {
+                if (daysEl) daysEl.textContent = '00';
+                if (hoursEl) hoursEl.textContent = '00';
+                if (minutesEl) minutesEl.textContent = '00';
+                if (secondsEl) secondsEl.textContent = '00';
+            }
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallaxElements = document.querySelectorAll('.parallax');
+            
+            parallaxElements.forEach(element => {
+                const speed = 0.5;
+                element.style.transform = `translate3d(0, ${scrolled * speed}px, 0)`;
+            });
+        });
+
+        // Add scroll-triggered animations
+        const scrollElements = document.querySelectorAll('.animate-slide-up');
+        const elementInView = (el, dividend = 1) => {
+            const elementTop = el.offsetTop;
+            const elementBottom = elementTop + el.offsetHeight;
+            const viewportTop = window.scrollY;
+            const viewportBottom = viewportTop + window.innerHeight;
+            return elementBottom > viewportTop && elementTop < viewportBottom;
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('animate-slide-up');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 1.25)) {
+                    displayScrollElement(el);
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScrollAnimation);
+    </script>
+</body>
+</html>

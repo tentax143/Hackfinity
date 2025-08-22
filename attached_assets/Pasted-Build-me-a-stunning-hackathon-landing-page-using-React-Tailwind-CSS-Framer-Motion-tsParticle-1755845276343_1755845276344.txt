@@ -1,0 +1,46 @@
+Build me a stunning hackathon landing page using **React + Tailwind CSS + Framer Motion + tsParticles**.  
+The website should be highly animated, cyberpunk-themed, and optimized for both desktop and mobile.  
+
+### 🔥 Hero Section
+- Full-screen background with a **cyberpunk gradient and animated particles** (using tsParticles).  
+- Hackathon name in **bold futuristic typography** at center.  
+- Tagline below it with a **glowing neon accent effect**.  
+- A floating **"Register on Unstop" button (CTA)** that pulses.  
+- Smooth scroll-down arrow animation at the bottom.
+
+### 🎬 Scroll Experience
+- Enable **parallax scrolling effects** for background.  
+- Animate each section in with **Framer Motion** (fade-up, slide-in, typewriter text).  
+
+### 📅 Timeline Section
+- A horizontal/vertical **animated timeline**.  
+- Each milestone lights up or highlights when hovered.  
+- Include: "Registrations Open", "Shortlisting", "Hackathon Begins", "Demo Day", "Prize Ceremony".
+
+### 🏆 Prizes Section (WOW Factor)
+- Cards that **flip or glow on hover** showing prize details.  
+- Show total prize pool (e.g. ₹1,00,000) with an **animated counter that counts up** when the section comes into view.  
+- Add icons for 1st / 2nd / 3rd prize.  
+
+### 🤝 Sponsors Section
+- Showcase sponsor logos in a **carousel/slider**.  
+- Each logo should glow subtly on hover.  
+- If no sponsors yet, include placeholder logos.  
+
+### 🌐 Community / Vibe Section
+- A **glowing "Join our Discord" button**.  
+- An **embedded countdown timer** (ticking down to hackathon start).  
+- Background effects that shift color for hype.  
+
+### 📱 Mobile Responsiveness
+- Navbar should collapse into a hamburger menu.  
+- All sections should be mobile-friendly.  
+
+### Extra Notes
+- Use **Tailwind** for styling.  
+- Use **Framer Motion** for all animations.  
+- Use **tsParticles** for background particles.  
+- Keep the vibe **cyberpunk / neon (purple, pink, teal, blue)**.  
+- Deploy-ready React project structure.  
+
+Finally, make sure to keep a **sticky navbar** with links: Home | About | Timeline | Prizes | Sponsors | Community | Register.
