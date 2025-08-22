@@ -169,7 +169,7 @@ export default function ProblemStatements() {
                       }}
                       transition={{ 
                         duration: 2, 
-                        repeat: Infinity,
+                        repeat: -1,
                         delay: index * 0.3,
                         ease: "easeInOut"
                       }}

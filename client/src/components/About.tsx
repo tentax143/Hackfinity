@@ -105,7 +105,7 @@ export default function About() {
               data-testid="about-description-2"
             >
               Join <span className="text-warm font-semibold">500+ developers</span>, compete for 
-              <span className="text-golden font-semibold"> ₹1,00,000</span> in prizes, and connect with 
+              <span className="text-golden font-semibold"> ₹30,000</span> in prizes, and connect with 
               industry leaders in an immersive 48-hour experience.
             </motion.p>
             

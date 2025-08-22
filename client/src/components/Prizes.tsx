@@ -7,37 +7,37 @@ import { useAnimatedCounter } from "@/hooks/useAnimatedCounter";
 export default function Prizes() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-  const prizeCount = useAnimatedCounter(100000, isInView);
+  const prizeCount = useAnimatedCounter(30000, isInView);
 
   const prizeCards = [
     {
       place: "1st Place",
-      amount: "₹50,000",
+      amount: "₹15,000",
       icon: Crown,
       color: "text-golden",
       gradient: "from-minimal-accent/10 to-minimal-accent/20",
       backGradient: "from-minimal-accent to-blue-600",
-      benefits: ["₹50,000 Cash Prize", "Trophy & Certificate", "Internship Opportunity", "Mentorship Program"],
+      benefits: ["₹15,000 Cash Prize", "Trophy & Certificate", "Internship Opportunity", "Mentorship Program"],
       testId: "first-place"
     },
     {
       place: "2nd Place",
-      amount: "₹30,000",
+      amount: "₹10,000",
       icon: Medal,
       color: "text-warm",
       gradient: "from-minimal-gray/10 to-minimal-gray/20",
       backGradient: "from-minimal-gray to-gray-500",
-      benefits: ["₹30,000 Cash Prize", "Medal & Certificate", "Workshop Access", "Industry Connect"],
+      benefits: ["₹10,000 Cash Prize", "Medal & Certificate", "Workshop Access", "Industry Connect"],
       testId: "second-place"
     },
     {
       place: "3rd Place",
-      amount: "₹20,000",
+      amount: "₹5,000",
       icon: Star,
       color: "text-golden-dark",
       gradient: "from-minimal-dark/10 to-minimal-dark/20",
       backGradient: "from-minimal-dark to-gray-800",
-      benefits: ["₹20,000 Cash Prize", "Certificate", "Tech Merchandise", "Community Access"],
+      benefits: ["₹5,000 Cash Prize", "Certificate", "Tech Merchandise", "Community Access"],
       testId: "third-place"
     }
   ];

@@ -48,7 +48,7 @@ export default function Hero() {
           }}
           transition={{ 
             duration: 30, 
-            repeat: Infinity, 
+            repeat: -1, 
             ease: "linear" 
           }}
         >
@@ -61,7 +61,7 @@ export default function Hero() {
           }}
           transition={{ 
             duration: 25, 
-            repeat: Infinity, 
+            repeat: -1, 
             ease: "linear",
             delay: -10
           }}
@@ -99,7 +99,7 @@ export default function Hero() {
           data-testid="hero-description"
         >
           <span className="text-golden font-semibold">48 Hours</span> of Pure Innovation • 
-          <span className="text-warm font-semibold"> ₹1,00,000</span> Prize Pool • 
+          <span className="text-warm font-semibold"> ₹30,000</span> Prize Pool • 
           <span className="text-golden font-semibold"> Unlimited</span> Possibilities
         </motion.p>
         
@@ -129,7 +129,7 @@ export default function Hero() {
           }}
           transition={{ 
             duration: 3, 
-            repeat: Infinity,
+            repeat: -1,
             ease: [0.4, 0, 0.6, 1]
           }}
           data-testid="scroll-arrow"

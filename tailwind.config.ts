@@ -10,6 +10,24 @@ export default {
         'minimal-dark': '#1F2937',
         'minimal-light': '#F9FAFB',
         'minimal-accent': '#3B82F6',
+        // Space theme colors
+        'space-dark': 'hsl(220, 15%, 6%)',
+        'space-medium': 'hsl(220, 15%, 12%)',
+        'space-light': 'hsl(220, 15%, 18%)',
+        // Golden colors
+        'golden': 'hsl(42, 100%, 55%)',
+        'golden-dark': 'hsl(42, 80%, 45%)',
+        // Text colors
+        'warm': 'hsl(42, 15%, 85%)',
+        'cool': 'hsl(220, 20%, 70%)',
+        // Cyber colors
+        'cyber-blue': '#00D4FF',
+        'cyber-teal': '#00FFD4',
+        'neon-purple': '#9D4EDD',
+        'hot-pink': '#FF006E',
+        // Additional colors
+        'darker-purple': '#1a0b2e',
+        'yellow-400': '#facc15',
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {
@@ -63,6 +81,8 @@ export default {
       },
       fontFamily: {
         minimal: ['Inter', 'sans-serif'],
+        space: ['Inter', 'sans-serif'],
+        cyber: ['Orbitron', 'monospace'],
         sans: ["var(--font-sans)"],
         serif: ["var(--font-serif)"],
         mono: ['JetBrains Mono', 'monospace'],

@@ -145,7 +145,7 @@ export default function Community() {
                   }}
                   transition={{ 
                     duration: 4, 
-                    repeat: Infinity,
+                    repeat: -1,
                     ease: [0.4, 0, 0.6, 1]
                   }}
                 >
@@ -174,12 +174,9 @@ export default function Community() {
             }}
             data-testid="discord-community"
           >
-            <motion.div
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-            >
+            <div>
               <MessageCircle className="mx-auto text-6xl text-golden mb-6 group-hover:scale-110 transition-transform duration-300" size={64} />
-            </motion.div>
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-warm">Join Our Discord</h3>
             <p className="text-cool mb-6">
               Connect with 1000+ developers, get real-time updates, find teammates, and engage in pre-hackathon discussions.
@@ -204,12 +201,9 @@ export default function Community() {
             }}
             data-testid="newsletter-signup"
           >
-            <motion.div
-              animate={{ rotate: [0, -10, 10, 0] }}
-              transition={{ duration: 3, repeat: Infinity }}
-            >
+            <div>
               <Bell className="mx-auto text-6xl text-golden mb-6 group-hover:scale-110 transition-transform duration-300" size={64} />
-            </motion.div>
+            </div>
             <h3 className="text-2xl font-bold mb-4 text-warm">Stay Updated</h3>
             <p className="text-cool mb-6">
               Get exclusive updates about workshops, mentorship sessions, and important announcements directly in your inbox.
@@ -259,7 +253,6 @@ export default function Community() {
                   variants={itemVariants}
                   whileHover={{ 
                     scale: 1.3,
-                    rotate: [0, 360],
                     transition: { duration: 0.6 }
                   }}
                   data-testid={`social-link-${social.name.toLowerCase()}`}
