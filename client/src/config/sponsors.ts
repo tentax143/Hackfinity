@@ -34,7 +34,13 @@ export const goldSponsors: Sponsor[] = [
     name: "ANT",
     image: "/ANT-Logo.png",
     alt: "ANT logo",
-    website: "https://www.antsolution.in/" // Update this with the actual website
+    website: "https://www.antsolution.in/"
+  },
+  {
+    name: "Icanio",
+    image: "/icanio.jpg",
+    alt: "Icanio logo",
+    website: "https://icanio.com" // Update this with the actual website
   },
   {
     name: "Software Development Company",
