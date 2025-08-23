@@ -2,48 +2,11 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, MessageCircle, Slack, Twitter, Youtube, Linkedin, Instagram, Facebook } from "lucide-react";
+import { titleSponsors, goldSponsors, communityPartners } from "@/config/sponsors";
 
 export default function Sponsors() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
-
-  const titleSponsors = [
-    {
-      name: "Major Technology Company",
-      image: "https://images.unsplash.com/photo-1633409361618-c73427e4e206?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100",
-      alt: "Major technology company logo"
-    },
-    {
-      name: "Innovation Startup",
-      image: "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100",
-      alt: "Innovation startup logo"
-    }
-  ];
-
-  const goldSponsors = [
-    {
-      name: "Software Development Company",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75",
-      alt: "Software development company logo"
-    },
-    {
-      name: "Cloud Services Provider",
-      image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75",
-      alt: "Cloud services provider logo"
-    },
-    {
-      name: "AI Company",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=75",
-      alt: "Artificial intelligence company logo"
-    }
-  ];
-
-  const communityPartners = [
-    { icon: Github, color: "text-neon-purple", name: "GitHub" },
-    { icon: MessageCircle, color: "text-cyber-blue", name: "Discord" },
-    { icon: Slack, color: "text-hot-pink", name: "Slack" },
-    { icon: Twitter, color: "text-cyber-teal", name: "Twitter" }
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -237,6 +200,26 @@ export default function Sponsors() {
                 );
               })}
             </motion.div>
+          </motion.div>
+
+          {/* Meet Our Team Button */}
+          <motion.div
+            className="text-center mt-16"
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.a 
+              href="/team"
+              className="inline-flex items-center gap-2 bg-golden text-space-dark px-8 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(157, 78, 221, 0.8), 0 0 40px rgba(157, 78, 221, 0.3)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Meet Our Team
+            </motion.a>
           </motion.div>
         </div>
       </div>

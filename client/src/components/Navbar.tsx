@@ -88,7 +88,15 @@ export default function Navbar() {
           </div>
           
           {/* Register Button */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-4">
+            <motion.a
+              href="/team"
+              className="text-cool hover:text-golden transition-colors duration-300 font-semibold"
+              whileHover={{ scale: 1.05 }}
+              data-testid="team-link-desktop"
+            >
+              Our Team
+            </motion.a>
             <motion.button 
               className="bg-golden text-space-dark px-6 py-2 rounded-lg font-semibold hover:bg-golden-dark transition-colors duration-300 glow-golden"
               whileHover={{ scale: 1.05 }}
@@ -166,6 +174,20 @@ export default function Navbar() {
                     {item}
                   </motion.a>
                 ))}
+                <motion.a
+                  href="/team"
+                  className="text-white hover:text-golden transition-colors duration-300 font-semibold"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { delay: 0.5 }
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  data-testid="team-link-mobile"
+                >
+                  Our Team
+                </motion.a>
                 <motion.button 
                   className="bg-gradient-to-r from-neon-purple to-hot-pink px-8 py-3 rounded-full font-semibold mt-8"
                   initial={{ opacity: 0, y: 20 }}

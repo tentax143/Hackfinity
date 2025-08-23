@@ -6,11 +6,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Analytics } from "@vercel/analytics/react";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
+import TeamPage from "@/pages/team";
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/team" component={TeamPage} />
       <Route component={NotFound} />
     </Switch>
   );
