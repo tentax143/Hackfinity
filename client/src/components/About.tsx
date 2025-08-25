@@ -104,9 +104,9 @@ export default function About() {
               variants={itemVariants}
               data-testid="about-description-2"
             >
-              Join <span className="text-warm font-semibold">500+ developers</span>, compete for 
+              Join <span className="text-warm font-semibold">100+ developers</span>, compete for 
               <span className="text-golden font-semibold"> ₹30,000</span> in prizes, and connect with 
-              industry leaders in an immersive 48-hour experience.
+              industry leaders in an immersive 24-hour experience.
             </motion.p>
             
             <motion.div 
@@ -121,7 +121,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 data-testid="stats-participants"
               >
-                <div className="text-3xl font-bold text-golden mb-2">500+</div>
+                <div className="text-3xl font-bold text-golden mb-2">100+</div>
                 <div className="text-sm text-cool">Participants</div>
               </motion.div>
               
@@ -131,7 +131,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 data-testid="stats-duration"
               >
-                <div className="text-3xl font-bold text-warm mb-2">48hrs</div>
+                <div className="text-3xl font-bold text-warm mb-2">24hrs</div>
                 <div className="text-sm text-cool">Non-stop Coding</div>
               </motion.div>
             </motion.div>

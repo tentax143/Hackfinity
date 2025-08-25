@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { MessageCircle, Bell, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
+import { MessageCircle, Bell, Instagram, Youtube } from "lucide-react";
 import { useCountdown } from "@/hooks/useCountdown";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,10 +15,8 @@ export default function Community() {
   const timeLeft = useCountdown(targetDate);
 
   const socialLinks = [
-    { icon: Twitter, color: "text-cyber-blue", name: "Twitter" },
-    { icon: Instagram, color: "text-neon-purple", name: "Instagram" },
-    { icon: Linkedin, color: "text-hot-pink", name: "LinkedIn" },
-    { icon: Youtube, color: "text-cyber-teal", name: "YouTube" }
+    { icon: Instagram, color: "text-neon-purple", name: "Instagram", url: "https://www.instagram.com/ritrjpm_ad?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+    { icon: Youtube, color: "text-cyber-teal", name: "YouTube", url: "https://www.youtube.com/@ritaidatascience1016" }
   ];
 
   const containerVariants = {
@@ -181,14 +179,17 @@ export default function Community() {
             <p className="text-cool mb-6">
               Connect with 1000+ developers, get real-time updates, find teammates, and engage in pre-hackathon discussions.
             </p>
-            <motion.button 
-              className="bg-golden text-space-dark px-8 py-3 rounded-lg font-semibold hover:bg-golden-dark transition-colors duration-300 glow-golden"
+            <motion.a 
+              href="https://discord.gg/pMsgBVEa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-golden text-space-dark px-8 py-3 rounded-lg font-semibold hover:bg-golden-dark transition-colors duration-300 glow-golden"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               data-testid="discord-join-button"
             >
               Join Discord Server
-            </motion.button>
+            </motion.a>
           </motion.div>
           
           {/* Newsletter Signup */}
@@ -248,7 +249,9 @@ export default function Community() {
               return (
                 <motion.a 
                   key={index}
-                  href="#"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`text-4xl ${social.color} hover:scale-125 transition-all duration-300 cyber-glow`}
                   variants={itemVariants}
                   whileHover={{ 

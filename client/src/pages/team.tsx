@@ -1,11 +1,15 @@
 import { motion } from "framer-motion";
-import { Users, Crown, Award, Code, Users2, ArrowLeft } from "lucide-react";
+import { Users, Crown, Award, Code, Users2, ArrowLeft, UserCheck, Megaphone, Camera, Bed } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import { 
+  headAdmin,
   staffCoordinators, 
   neotricMembers, 
   eventCoordinators, 
-  technicalTeam, 
+  technicalTeam,
+  generalAnnouncement,
+  mediaTeam,
+  accommodationTeam,
   type TeamMember, 
   type Coordinator 
 } from "@/config/team";
@@ -63,7 +67,7 @@ export default function TeamPage() {
     borderColor 
   }: {
     title: string;
-    members: TeamMember[];
+    members: (TeamMember | Coordinator)[];
     icon: any;
     color: string;
     bgColor: string;
@@ -207,14 +211,34 @@ export default function TeamPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
+          {/* Head (Admin) */}
+          <TeamSection
+            title="Head (Admin)"
+            members={headAdmin}
+            icon={Crown}
+            color="text-golden"
+            bgColor="bg-space-light/60"
+            borderColor="border-space-light/40"
+          />
+
           {/* Staff Coordinators */}
           <TeamSection
-            title="Staff Coordinators"
+            title="Staff Coordinators (Admin)"
             members={staffCoordinators}
-            icon={Crown}
+            icon={UserCheck}
             color="text-golden"
             bgColor="bg-space-light/50"
             borderColor="border-space-light/30"
+          />
+
+          {/* Event Coordinators */}
+          <TeamSection
+            title="Event Coordinators (Admin)"
+            members={eventCoordinators}
+            icon={Users}
+            color="text-cyber-blue"
+            bgColor="bg-space-light/30"
+            borderColor="border-space-light/20"
           />
 
           {/* Neotric AI Association */}
@@ -227,19 +251,9 @@ export default function TeamPage() {
             borderColor="border-space-light/25"
           />
 
-          {/* Event Coordinators */}
-          <TeamSection
-            title="Event Coordinators"
-            members={eventCoordinators}
-            icon={Users}
-            color="text-cyber-blue"
-            bgColor="bg-space-light/30"
-            borderColor="border-space-light/20"
-          />
-
           {/* Technical Team */}
           <TeamSection
-            title="Technical Team"
+            title="Technical Team (Tech and Info Desk)"
             members={technicalTeam}
             icon={Code}
             color="text-cyber-teal"
@@ -247,9 +261,35 @@ export default function TeamPage() {
             borderColor="border-space-light/22"
           />
 
+          {/* General Announcement */}
+          <TeamSection
+            title="General Announcement (Tech and Info Desk)"
+            members={generalAnnouncement}
+            icon={Megaphone}
+            color="text-warm"
+            bgColor="bg-space-light/25"
+            borderColor="border-space-light/15"
+          />
 
+          {/* Media and Social Forum */}
+          <TeamSection
+            title="Media and Social Forum"
+            members={mediaTeam}
+            icon={Camera}
+            color="text-cyber-pink"
+            bgColor="bg-space-light/30"
+            borderColor="border-space-light/18"
+          />
 
-
+          {/* Accommodation */}
+          <TeamSection
+            title="Accommodation (Accommodation and Food)"
+            members={accommodationTeam}
+            icon={Bed}
+            color="text-cyber-green"
+            bgColor="bg-space-light/28"
+            borderColor="border-space-light/16"
+          />
 
           {/* Call to Action */}
           <motion.div

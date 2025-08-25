@@ -98,7 +98,7 @@ export default function Hero() {
           variants={itemVariants}
           data-testid="hero-description"
         >
-          <span className="text-golden font-semibold">48 Hours</span> of Pure Innovation • 
+          <span className="text-golden font-semibold">24 Hours</span> of Pure Innovation • 
           <span className="text-warm font-semibold"> ₹30,000</span> Prize Pool • 
           <span className="text-golden font-semibold"> Unlimited</span> Possibilities
         </motion.p>
