@@ -97,14 +97,21 @@ export default function Navbar() {
             >
               Our Team
             </motion.a>
-            <motion.button 
-              className="bg-golden text-space-dark px-6 py-2 rounded-lg font-semibold hover:bg-golden-dark transition-colors duration-300 glow-golden"
+            <motion.a
+              href="https://unstop.com/o/HVvwDQL?lb=PqpLtONJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => {
+                e.preventDefault();
+                window.open('https://unstop.com/o/HVvwDQL?lb=PqpLtONJ', '_blank', 'noopener,noreferrer');
+              }}
+              className="bg-golden text-space-dark px-6 py-2 rounded-lg font-semibold hover:bg-golden-dark transition-colors duration-300 glow-golden cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               data-testid="register-button-desktop"
             >
               Register on Unstop
-            </motion.button>
+            </motion.a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -188,8 +195,15 @@ export default function Navbar() {
                 >
                   Our Team
                 </motion.a>
-                <motion.button 
-                  className="bg-gradient-to-r from-neon-purple to-hot-pink px-8 py-3 rounded-full font-semibold mt-8"
+                <motion.a
+                  href="https://unstop.com/o/HVvwDQL?lb=PqpLtONJ"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open('https://unstop.com/o/HVvwDQL?lb=PqpLtONJ', '_blank', 'noopener,noreferrer');
+                  }}
+                  className="bg-gradient-to-r from-neon-purple to-hot-pink px-8 py-3 rounded-full font-semibold mt-8 cursor-pointer"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
                     opacity: 1, 
@@ -201,7 +215,7 @@ export default function Navbar() {
                   data-testid="register-button-mobile"
                 >
                   Register on Unstop
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}

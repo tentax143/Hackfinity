@@ -88,55 +88,37 @@ export const timelineEvents: TimelineEvent[] = [
     bgColor: "bg-golden"
   },
   {
-    date: "Sept 5-15",
-    title: "Evaluation & Shortlisting",
-    description: "Round 1 screening process",
+    date: "Sept 5-25",
+    title: "Round 1: Evaluation & Online Presentation",
+    description: "Idea submission, evaluation, and online presentation",
     icon: Users,
     color: "text-warm",
     bgColor: "bg-warm",
     startDate: "Sept 5",
-    endDate: "Sept 15"
-  },
-  {
-    date: "Sept 15",
-    title: "Round 1 Results",
-    description: "Shortlisted teams announced",
-    icon: FileText,
-    color: "text-cool",
-    bgColor: "bg-cool"
-  },
-  {
-    date: "Sept 20-25",
-    title: "Round 2: Online Presentation",
-    description: "Present your ideas online",
-    icon: Presentation,
-    color: "text-golden",
-    bgColor: "bg-golden",
-    startDate: "Sept 20",
     endDate: "Sept 25"
   },
   {
     date: "Sept 26",
-    title: "Round 2 Results",
+    title: "Round 1 Results",
     description: "Final round qualifiers announced",
     icon: FileText,
-    color: "text-warm",
-    bgColor: "bg-warm"
-  },
-  {
-    date: "Oct 6",
-    title: "Final Round: On-Campus",
-    description: "24-hour hackathon begins",
-    icon: Home,
     color: "text-cool",
     bgColor: "bg-cool"
   },
   {
-    date: "Oct 7",
-    title: "Hackathon Ends & Winners",
-    description: "Results and prize ceremony",
-    icon: Trophy,
+    date: "Oct 6",
+    title: "Round 2: On-Campus Hackathon",
+    description: "24-hour hackathon at Ramco Institute of Technology",
+    icon: Home,
     color: "text-golden",
     bgColor: "bg-golden"
+  },
+  {
+    date: "Oct 7",
+    title: "Round 2 Results & Winners",
+    description: "Results and prize ceremony at Ramco Institute of Technology",
+    icon: Trophy,
+    color: "text-warm",
+    bgColor: "bg-warm"
   }
 ];

@@ -298,21 +298,18 @@ export default function GuidelinesPage() {
                   <h4 className="text-xl font-semibold text-warm mb-4">3. Competition Rounds</h4>
                   <div className="space-y-4">
                     <div className="bg-space-light/10 p-4 rounded-lg">
-                      <h5 className="font-semibold text-golden mb-2">Round 1: Idea Submission</h5>
-                      <p className="text-cool text-sm">Teams submit brief proposal outlining project idea, problem statement, and proposed solution.</p>
+                      <h5 className="font-semibold text-golden mb-2">Round 1: Evaluation & Online Presentation</h5>
+                      <p className="text-cool text-sm">Teams submit brief proposal and present ideas online. Includes idea submission, evaluation, and online presentation.</p>
                       <p className="text-cool text-sm mt-2"><strong>Deadline:</strong> 25-08-2025 to 05-09-2025</p>
-                      <p className="text-cool text-sm"><strong>Results:</strong> 15-09-2025</p>
+                      <p className="text-cool text-sm"><strong>Online Presentation:</strong> 20-09-2025 to 25-09-2025</p>
+                      <p className="text-cool text-sm"><strong>Results:</strong> 26-09-2025</p>
                     </div>
-                    <div className="bg-space-light/10 p-4 rounded-lg">
-                      <h5 className="font-semibold text-golden mb-2">Round 2: Prototype Development</h5>
-                      <p className="text-cool text-sm">Teams develop working prototype based on approved idea.</p>
-                      <p className="text-cool text-sm mt-2"><strong>Deadline:</strong> 06-09-2025 to 15-09-2025</p>
-                      <p className="text-cool text-sm"><strong>Results:</strong> 25-09-2025</p>
-                    </div>
-                    <div className="bg-space-light/10 p-4 rounded-lg">
-                      <h5 className="font-semibold text-golden mb-2">Round 3: Finalist Presentations</h5>
-                      <p className="text-cool text-sm">Top 10 teams present projects to judges. 5 minutes demo + Q&A.</p>
-                    </div>
+                                         <div className="bg-space-light/10 p-4 rounded-lg">
+                       <h5 className="font-semibold text-golden mb-2">Round 2: On-Campus Hackathon</h5>
+                       <p className="text-cool text-sm">Top 10 teams participate in 24-hour hackathon at Ramco Institute of Technology. 5 minutes demo + Q&A.</p>
+                       <p className="text-cool text-sm mt-2"><strong>Venue:</strong> Ramco Institute of Technology</p>
+                       <p className="text-cool text-sm"><strong>Duration:</strong> 24 hours (Oct 6-7, 2025)</p>
+                     </div>
                   </div>
                 </div>
 

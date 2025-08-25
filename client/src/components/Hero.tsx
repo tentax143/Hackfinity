@@ -109,7 +109,11 @@ export default function Hero() {
             href="https://unstop.com/o/HVvwDQL?lb=PqpLtONJ"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-golden text-space-dark px-12 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open('https://unstop.com/o/HVvwDQL?lb=PqpLtONJ', '_blank', 'noopener,noreferrer');
+            }}
+            className="inline-block bg-golden text-space-dark px-12 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow cursor-pointer"
             whileHover={{ 
               scale: 1.1,
               boxShadow: "0 0 30px rgba(157, 78, 221, 0.8), 0 0 40px rgba(157, 78, 221, 0.3)"
