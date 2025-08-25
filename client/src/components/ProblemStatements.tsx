@@ -193,17 +193,18 @@ export default function ProblemStatements() {
           >
             Ready to tackle one of these challenges?
           </motion.p>
-          <motion.button
-            className="bg-golden text-space-dark px-8 py-4 rounded-lg font-space font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden"
+          <motion.a
+            href="/problem-statements"
+            className="inline-block bg-golden text-space-dark px-8 py-4 rounded-lg font-space font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden"
             whileHover={{ 
               scale: 1.05,
               boxShadow: "0 0 40px hsla(42, 100%, 55%, 0.4)"
             }}
             whileTap={{ scale: 0.95 }}
-            data-testid="register-problem-button"
+            data-testid="view-statements-button"
           >
-            Choose Your Track & Register
-          </motion.button>
+            View Full Statements
+          </motion.a>
         </motion.div>
       </div>
     </section>

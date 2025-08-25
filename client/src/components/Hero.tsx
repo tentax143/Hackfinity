@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Rocket } from "lucide-react";
+import { ChevronDown, Rocket, FileText } from "lucide-react";
 import ParticleBackground from "./ParticleBackground";
 
 export default function Hero() {
@@ -103,8 +103,8 @@ export default function Hero() {
           <span className="text-golden font-semibold"> Unlimited</span> Possibilities
         </motion.p>
         
-        {/* CTA Button */}
-        <motion.div variants={itemVariants}>
+        {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
           <motion.button 
             className="bg-golden text-space-dark px-12 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
             whileHover={{ 
@@ -117,24 +117,53 @@ export default function Hero() {
             <Rocket className="inline-block mr-2" size={20} />
             Register on Unstop
           </motion.button>
+          
+          <motion.a 
+            href="/guidelines"
+            className="bg-space-light/20 backdrop-blur-sm border border-golden/20 text-golden px-8 py-4 rounded-lg text-lg font-semibold hover:bg-space-light/30 transition-all duration-300"
+            whileHover={{ 
+              scale: 1.05,
+              boxShadow: "0 0 20px rgba(255, 215, 0, 0.3)"
+            }}
+            whileTap={{ scale: 0.95 }}
+            data-testid="hero-guidelines-button"
+          >
+            <FileText className="inline-block mr-2" size={18} />
+            Guidelines
+          </motion.a>
         </motion.div>
         
-        {/* Scroll Arrow */}
-        <motion.div 
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-          animate={{ 
-            y: [0, 12, 0],
-            scale: [1, 1.1, 1],
-            opacity: [0.7, 1, 0.7]
-          }}
-          transition={{ 
-            duration: 3, 
-            repeat: -1,
-            ease: [0.4, 0, 0.6, 1]
-          }}
-          data-testid="scroll-arrow"
+        {/* Scroll Down Indicator */}
+        <motion.div
+          variants={itemVariants}
+          className="flex justify-center"
         >
-          <ChevronDown className="text-3xl text-cyber-blue cyber-glow" size={32} />
+          <motion.div
+            className="flex flex-col items-center text-golden"
+            animate={{
+              y: [0, 10, 0],
+            }}
+            transition={{
+              duration: 2,
+              repeat: -1,
+              ease: "easeInOut"
+            }}
+          >
+            <span className="text-sm font-semibold mb-2">Scroll Down</span>
+            <motion.div
+              animate={{
+                y: [0, 5, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: -1,
+                ease: "easeInOut",
+                delay: 0.5
+              }}
+            >
+              <ChevronDown size={24} className="text-golden" />
+            </motion.div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </section>

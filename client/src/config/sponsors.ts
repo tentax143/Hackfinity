@@ -74,7 +74,7 @@ export const communityPartners: CommunityPartner[] = [
     icon: "MessageCircle", 
     color: "text-cyber-blue", 
     name: "Discord",
-    website: "https://discord.com"
+    website: "https://discord.gg/pMsgBVEa"
   },
   { 
     icon: "Slack", 
