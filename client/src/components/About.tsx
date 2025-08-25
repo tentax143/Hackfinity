@@ -144,7 +144,7 @@ export default function About() {
             transition={{ duration: 0.8 }}
           >
             <motion.img 
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&h=600" 
+              src="/abt.jpg" 
               alt="Hackathon participants coding together in a futuristic environment" 
               className="rounded-xl shadow-2xl w-full h-auto hover:scale-105 transition-transform duration-500"
               whileHover={{ scale: 1.05 }}
