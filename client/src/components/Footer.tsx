@@ -18,22 +18,21 @@ export default function Footer() {
       color: "text-cool",
       links: [
         { name: "Rules & Guidelines", href: "#" },
-        { name: "API Documentation", href: "#" },
-        { name: "Mentor Network", href: "#" },
+        
         { name: "FAQs", href: "#" }
       ]
     }
   ];
 
   const contactInfo = [
-    { icon: Mail, text: "hello@cyberhack2024.com" },
-    { icon: Phone, text: "+91 98765 43210" },
-    { icon: MapPin, text: "Tech Park, Bangalore" }
+    { icon: Mail, text: "hackfinityrit@gmail.com" },
+    { icon: Phone, text: "+91 8220789878" },
+    { icon: MapPin, text: "Ramco Institute of Technology" }
   ];
 
   const socialIcons = [
     { icon: Github, name: "GitHub" },
-    { icon: MessageCircle, name: "Discord" },
+    { icon: MessageCircle, name: "Discord" }, 
     { icon: Twitter, name: "Twitter" }
   ];
 
@@ -82,7 +81,7 @@ export default function Footer() {
               Hackfinity<span className="text-golden"> 1.0</span>
             </motion.div>
             <p className="text-cool mb-4">
-              The ultimate cyberpunk hackathon experience. 48 hours of innovation, collaboration, and cutting-edge technology.
+              The ultimate National Level hackathon experience. 24 hours of innovation, collaboration, and cutting-edge technology.
             </p>
             <div className="flex space-x-4">
               {socialIcons.map((social, index) => {
