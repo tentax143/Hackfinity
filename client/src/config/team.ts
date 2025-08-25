@@ -130,36 +130,13 @@ export const technicalTeam: TeamMember[] = [
 
 
 
-// Panel Members for Round Screening
-export const panelMembers: TeamMember[] = [
-  {
-    name: "ATS",
-    role: "Panel Member",
-    department: "Round Screening Panel"
-  },
-  {
-    name: "NITHEESH",
-    role: "Panel Member",
-    department: "Round Screening Panel"
-  },
-  {
-    name: "MEHA",
-    role: "Panel Member",
-    department: "Round Screening Panel"
-  },
-  {
-    name: "Mr. R. Muthu Eshwaran",
-    role: "Panel Member",
-    department: "Round Screening Panel"
-  }
-];
+
 
 // Legacy arrays for backward compatibility
 export const teamMembers = [
   ...neotricMembers,
   ...eventCoordinators,
-  ...technicalTeam,
-  ...panelMembers
+  ...technicalTeam
 ];
 
 export const coordinators = staffCoordinators;

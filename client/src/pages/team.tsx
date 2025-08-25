@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import { Users, Crown, Star, Award, Code, Users2, ArrowLeft } from "lucide-react";
+import { Users, Crown, Award, Code, Users2, ArrowLeft } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import { 
   staffCoordinators, 
   neotricMembers, 
   eventCoordinators, 
   technicalTeam, 
-  panelMembers,
   type TeamMember, 
   type Coordinator 
 } from "@/config/team";
@@ -250,15 +249,7 @@ export default function TeamPage() {
 
 
 
-          {/* Panel Members */}
-          <TeamSection
-            title="Panel Members (Round Screening)"
-            members={panelMembers}
-            icon={Star}
-            color="text-neon-purple"
-            bgColor="bg-space-light/35"
-            borderColor="border-space-light/22"
-          />
+
 
           {/* Call to Action */}
           <motion.div
