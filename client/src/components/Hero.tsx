@@ -105,8 +105,11 @@ export default function Hero() {
         
         {/* CTA Buttons */}
         <motion.div variants={itemVariants} className="mb-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <motion.button 
-            className="bg-golden text-space-dark px-12 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
+          <motion.a 
+            href="https://unstop.com/o/HVvwDQL?lb=PqpLtONJ"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-golden text-space-dark px-12 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
             whileHover={{ 
               scale: 1.1,
               boxShadow: "0 0 30px rgba(157, 78, 221, 0.8), 0 0 40px rgba(157, 78, 221, 0.3)"
@@ -116,7 +119,7 @@ export default function Hero() {
           >
             <Rocket className="inline-block mr-2" size={20} />
             Register on Unstop
-          </motion.button>
+          </motion.a>
           
           <motion.a 
             href="/guidelines"

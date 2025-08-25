@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Users, Crown, Award, Code, Users2, ArrowLeft, UserCheck, Megaphone, Camera, Bed } from "lucide-react";
+import { Users, Crown, Award, Code, Users2, ArrowLeft, UserCheck, Megaphone, Camera, Bed, ChevronDown } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import { 
   headAdmin,
@@ -184,7 +184,7 @@ export default function TeamPage() {
           </motion.p>
           
           {/* Back to Home Button */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="mb-8">
             <motion.a 
               href="/"
               className="inline-flex items-center gap-2 bg-golden text-space-dark px-8 py-4 rounded-lg text-xl font-semibold hover:bg-golden-dark transition-all duration-300 glow-golden space-shadow"
@@ -197,6 +197,39 @@ export default function TeamPage() {
               <ArrowLeft className="inline-block" size={20} />
               Back to Home
             </motion.a>
+          </motion.div>
+          
+          {/* Scroll Down Indicator */}
+          <motion.div
+            variants={itemVariants}
+            className="flex justify-center"
+          >
+            <motion.div
+              className="flex flex-col items-center text-golden"
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{
+                duration: 2,
+                repeat: -1,
+                ease: "easeInOut"
+              }}
+            >
+              <span className="text-sm font-semibold mb-2">Scroll Down</span>
+              <motion.div
+                animate={{
+                  y: [0, 5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: -1,
+                  ease: "easeInOut",
+                  delay: 0.5
+                }}
+              >
+                <ChevronDown size={24} className="text-golden" />
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </section>
