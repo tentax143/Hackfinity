@@ -79,7 +79,7 @@ export const neotricMembers: TeamMember[] = [
 export const eventCoordinators: TeamMember[] = [
   {
     name: "B. Manish Kumar",
-    role: "Admin & Finance",
+    role: "Hackathon TechOps Lead",
     department: "III-A Event Coordination"
   },
   {
@@ -128,86 +128,7 @@ export const technicalTeam: TeamMember[] = [
   }
 ];
 
-// Media and Social Forum
-export const mediaTeam: TeamMember[] = [
-  {
-    name: "L. Varsha",
-    role: "Organizing Secretary & Media",
-    department: "IV-B Media Team"
-  },
-  {
-    name: "Annamalai M.R.M",
-    role: "Media Coordinator",
-    department: "II-A Media Team"
-  },
-  {
-    name: "M. Unni Krishnan",
-    role: "Media Coordinator",
-    department: "II-A Media Team"
-  }
-];
 
-// General Announcement Team
-export const announcementTeam: TeamMember[] = [
-  {
-    name: "S. Shifana",
-    role: "General Announcement",
-    department: "IV-A Announcement Team"
-  },
-  {
-    name: "Sri Varushni M",
-    role: "General Announcement",
-    department: "III-A Announcement Team"
-  },
-  {
-    name: "Pon Anupriya",
-    role: "General Announcement",
-    department: "II-B Announcement Team"
-  },
-  {
-    name: "Ruba Dharshni",
-    role: "General Announcement",
-    department: "II-B Announcement Team"
-  }
-];
-
-// Accommodation Team
-export const accommodationTeam: TeamMember[] = [
-  {
-    name: "S Kishorre Kumar",
-    role: "Accommodation & Food (Boys)",
-    department: "III-A Accommodation Team"
-  },
-  {
-    name: "Sanjay S",
-    role: "Accommodation & Food (Boys)",
-    department: "III-A Technical II"
-  },
-  {
-    name: "Amitha",
-    role: "Accommodation & Food (Girls)",
-    department: "III-A Accommodation Team"
-  },
-  {
-    name: "Deepthi",
-    role: "Accommodation & Food (Girls)",
-    department: "III-A Accommodation Team"
-  }
-];
-
-// Judging Assistant Team
-export const judgingTeam: TeamMember[] = [
-  {
-    name: "ATS",
-    role: "Judging Assistant",
-    department: "Judging Team"
-  },
-  {
-    name: "R. Swetha",
-    role: "Judging Assistant",
-    department: "Judging Team"
-  }
-];
 
 // Panel Members for Round Screening
 export const panelMembers: TeamMember[] = [
@@ -238,10 +159,6 @@ export const teamMembers = [
   ...neotricMembers,
   ...eventCoordinators,
   ...technicalTeam,
-  ...mediaTeam,
-  ...announcementTeam,
-  ...accommodationTeam,
-  ...judgingTeam,
   ...panelMembers
 ];
 

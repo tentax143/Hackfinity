@@ -1,15 +1,11 @@
 import { motion } from "framer-motion";
-import { Users, Crown, Star, Award, Code, Megaphone, Camera, Home, Gavel, Users2, ArrowLeft } from "lucide-react";
+import { Users, Crown, Star, Award, Code, Users2, ArrowLeft } from "lucide-react";
 import ParticleBackground from "@/components/ParticleBackground";
 import { 
   staffCoordinators, 
   neotricMembers, 
   eventCoordinators, 
   technicalTeam, 
-  mediaTeam, 
-  announcementTeam, 
-  accommodationTeam, 
-  judgingTeam, 
   panelMembers,
   type TeamMember, 
   type Coordinator 
@@ -252,45 +248,7 @@ export default function TeamPage() {
             borderColor="border-space-light/22"
           />
 
-          {/* Media and Social Forum */}
-          <TeamSection
-            title="Media & Social Forum"
-            members={mediaTeam}
-            icon={Camera}
-            color="text-hot-pink"
-            bgColor="bg-space-light/30"
-            borderColor="border-space-light/20"
-          />
 
-          {/* General Announcement */}
-          <TeamSection
-            title="General Announcement"
-            members={announcementTeam}
-            icon={Megaphone}
-            color="text-yellow-400"
-            bgColor="bg-space-light/30"
-            borderColor="border-space-light/20"
-          />
-
-          {/* Accommodation Team */}
-          <TeamSection
-            title="Accommodation Team"
-            members={accommodationTeam}
-            icon={Home}
-            color="text-cyber-blue"
-            bgColor="bg-space-light/30"
-            borderColor="border-space-light/20"
-          />
-
-          {/* Judging Assistant */}
-          <TeamSection
-            title="Judging Assistant"
-            members={judgingTeam}
-            icon={Gavel}
-            color="text-golden"
-            bgColor="bg-space-light/40"
-            borderColor="border-space-light/25"
-          />
 
           {/* Panel Members */}
           <TeamSection
