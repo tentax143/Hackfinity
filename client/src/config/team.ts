@@ -233,7 +233,7 @@ export const accommodationTeam: TeamMember[] = [
     department: "IV B - Organizing Secretary + Hostel"
   },
   {
-    name: "C R Rajapande",
+    name: "SANJAY.S",
     role: "Hostel Management",
     department: "Hostel Management"
   }
