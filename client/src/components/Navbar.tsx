@@ -90,6 +90,14 @@ export default function Navbar() {
           {/* Register Button */}
           <div className="hidden md:flex items-center gap-4">
             <motion.a
+              href="/problem-statements"
+              className="text-cool hover:text-golden transition-colors duration-300 font-semibold"
+              whileHover={{ scale: 1.05 }}
+              data-testid="problem-statements-link-desktop"
+            >
+              Problem Statements
+            </motion.a>
+            <motion.a
               href="/team"
               className="text-cool hover:text-golden transition-colors duration-300 font-semibold"
               whileHover={{ scale: 1.05 }}
@@ -182,13 +190,27 @@ export default function Navbar() {
                   </motion.a>
                 ))}
                 <motion.a
-                  href="/team"
+                  href="/problem-statements"
                   className="text-white hover:text-golden transition-colors duration-300 font-semibold"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ 
                     opacity: 1, 
                     y: 0,
                     transition: { delay: 0.5 }
+                  }}
+                  whileHover={{ scale: 1.05 }}
+                  data-testid="problem-statements-link-mobile"
+                >
+                  Problem Statements
+                </motion.a>
+                <motion.a
+                  href="/team"
+                  className="text-white hover:text-golden transition-colors duration-300 font-semibold"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: { delay: 0.6 }
                   }}
                   whileHover={{ scale: 1.05 }}
                   data-testid="team-link-mobile"
@@ -208,7 +230,7 @@ export default function Navbar() {
                   animate={{ 
                     opacity: 1, 
                     y: 0,
-                    transition: { delay: 0.6 }
+                    transition: { delay: 0.7 }
                   }}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
