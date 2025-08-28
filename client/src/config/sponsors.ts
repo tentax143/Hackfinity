@@ -19,18 +19,6 @@ export const titleSponsors: Sponsor[] = [
     image: "/annz-logo.png",
     alt: "ANNZ logo",
     website: "https://example.com" // Update this with the actual website
-  },
-  {
-    name: "Major Technology Company",
-    image: "/attached_assets/sponsors/title-sponsors/sponsor1.png", // Update this path
-    alt: "Major technology company logo",
-    website: "https://example.com"
-  },
-  {
-    name: "Innovation Startup",
-    image: "/attached_assets/sponsors/title-sponsors/sponsor2.png", // Update this path
-    alt: "Innovation startup logo",
-    website: "https://example.com"
   }
 ];
 
@@ -53,24 +41,6 @@ export const goldSponsors: Sponsor[] = [
     image: "/sslogo.jpg",
     alt: "SS logo",
     website: "https://example.com" // Update this with the actual website
-  },
-  {
-    name: "Software Development Company",
-    image: "/attached_assets/sponsors/gold-sponsors/sponsor3.png", // Update this path
-    alt: "Software development company logo",
-    website: "https://example.com"
-  },
-  {
-    name: "Cloud Services Provider",
-    image: "/attached_assets/sponsors/gold-sponsors/sponsor4.png", // Update this path
-    alt: "Cloud services provider logo",
-    website: "https://example.com"
-  },
-  {
-    name: "AI Company",
-    image: "/attached_assets/sponsors/gold-sponsors/sponsor5.png", // Update this path
-    alt: "Artificial intelligence company logo",
-    website: "https://example.com"
   }
 ];
 
