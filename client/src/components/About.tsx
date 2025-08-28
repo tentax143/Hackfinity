@@ -121,7 +121,7 @@ export default function About() {
                 whileHover={{ scale: 1.05 }}
                 data-testid="stats-participants"
               >
-                <div className="text-3xl font-bold text-golden mb-2">205</div>
+                <div className="text-3xl font-bold text-golden mb-2">205+</div>
                 <div className="text-sm text-cool">Participants</div>
               </motion.div>
               
