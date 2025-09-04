@@ -18,13 +18,13 @@ export const titleSponsors: Sponsor[] = [
     name: "ANNZ",
     image: "/annz-logo.png",
     alt: "ANNZ logo",
-    website: "https://example.com" // Update this with the actual website
+    website: "https://annztech.com/" // Update this with the actual website
   },
   {
     name: "Mentron",
     image: "/mentron_main.png",
     alt: "Mentron logo",
-    website: "https://example.com" // Update this with the actual website
+    website: "https://www.mentron.in/ " // Update this with the actual website
   }
 ];
 
