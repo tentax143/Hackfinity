@@ -306,7 +306,7 @@ export default function ProblemStatementsPage() {
                href="https://docs.google.com/document/d/1oRDPZynRAVALbAM-7Sf8nXBT8k4NIz3ZNF79t6YeXu8/edit?usp=sharing"
                target="_blank"
                rel="noopener noreferrer"
-               className="inline-flex items-center gap-2 bg-cyber-teal/20 backdrop-blur-sm border border-cyber-teal/20 text-cyber-teal px-6 py-3 rounded-lg font-semibold hover:bg-cyber-teal/30 transition-all duration-300"
+               className="inline-flex items-center gap-2 bg-space-light/20 backdrop-blur-sm border border-golden/20 text-golden px-6 py-3 rounded-lg font-semibold hover:bg-space-light/30 transition-all duration-300"
                whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
              >
