@@ -290,7 +290,7 @@ export default function ProblemStatementsPage() {
                      {/* Back to Home Button */}
            <motion.div
              variants={itemVariants}
-             className="flex justify-center mb-8"
+             className="flex justify-center gap-4 mb-8"
            >
              <motion.a 
                href="/"
@@ -300,6 +300,18 @@ export default function ProblemStatementsPage() {
              >
                <ArrowLeft size={20} />
                Back to Home
+             </motion.a>
+             
+             <motion.a 
+               href="https://docs.google.com/document/d/1oRDPZynRAVALbAM-7Sf8nXBT8k4NIz3ZNF79t6YeXu8/edit?usp=sharing"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 bg-cyber-teal/20 backdrop-blur-sm border border-cyber-teal/20 text-cyber-teal px-6 py-3 rounded-lg font-semibold hover:bg-cyber-teal/30 transition-all duration-300"
+               whileHover={{ scale: 1.05 }}
+               whileTap={{ scale: 0.95 }}
+             >
+               <BookOpen size={20} />
+               Detailed & Additional Statements
              </motion.a>
            </motion.div>
 
